@@ -30,3 +30,61 @@ function moveY(body, translate1, translate2)
         body.style.transform = 'translateY('+translate2+'%)'
     });
 }
+
+const caption = document.getElementById("caption")
+let timerId
+caption.onmouseover = () =>
+{
+    let visible = false;
+    timerId = setInterval(() => blinking(), 100);
+    document.getElementById("cursor").style.visibility = "visible"
+}
+caption.onmouseout = () =>
+{
+    document.getElementById("typewriter").textContent = "G"
+    document.getElementById("cursor").style.visibility = "hidden"
+    clearInterval(timerId)
+    turn = 1
+    iteration = 1
+    sign = 1
+    word = "G"
+}
+
+words = ["Generation", "Graphs"]
+turn = 1
+iteration = 1
+sign = 1
+word = "G"
+
+function blinking()
+{
+    if ((sign == 1) && (words[turn].length > iteration))
+    {
+        word = words[turn].substr(0, iteration+1)
+        iteration += sign
+    }
+    else if ((sign == 1) && (words[turn].length == iteration))
+    {
+        sign = -1
+    }
+    else if ((sign == -1) && (iteration > 0))
+    {
+        word = words[turn].substr(0, iteration+1)
+        iteration += sign
+    }
+    else if ((sign == -1) && (0 == iteration))
+    {
+        sign = 1
+        if (turn == 0)
+        {
+            turn = 1
+        }
+        else turn = 0
+    }
+
+    document.getElementById("typewriter").textContent = word
+
+    // if (window.getComputedStyle(document.getElementById("cursor")).visibility == "visible")
+    //     document.getElementById("cursor").style.visibility = "hidden"
+    // else document.getElementById("cursor").style.visibility = "visible"
+}
