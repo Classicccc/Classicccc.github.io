@@ -1,0 +1,50 @@
+body, html {
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+.page-wrapper {
+    position: relative;
+    color: white;
+}
+
+.func {
+    text-align: center;
+    cursor: pointer;
+    font-size: 40pt;
+    border: 0.5px solid white;
+    width: 30%;
+    height: 15rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background-color: rgba(255,255,255,0.1);
+}
+
+.func:hover {
+    border-color: rgb(128, 229, 255);;
+    color: rgb(128, 229, 255);
+    transition: 0.5s;
+}
+
+#main-page {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: calc(50% - 6rem);
+}
+
+#main {
+    height: 100%;
+}
+
+#about-project {
+    height: 100%;
+}
